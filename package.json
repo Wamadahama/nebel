@@ -1,0 +1,21 @@
+{
+  "name": "nebel",
+  "version": "0.0.1",
+  "description": "A file viewer",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/wamadahama/nebel.git",
+  "keywords": [
+      "file viewer",
+      "image viewer",
+      "image",
+      "electron"
+  ],
+  "author": "Elijah Ellis",
+  "license": "BSD",
+  "devDependencies": {
+    "electron": "^1.4.1"
+  }
+}
