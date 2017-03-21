@@ -6,10 +6,49 @@
 
 const {ipcRenderer} = require('electron')
 
+let constants = require('./constants')
+
 let imageBox = document.querySelector("#image")
 
+let fileList = []
+let currentImage = 0
+
 ipcRenderer.on('image-send', function(event, files) {
-  imageBox.src = files[0];
+    /* Store the files */
+    fileList = files
+
+    /* Load the first file */
+    imageBox.src = files[0];
+
 });
 
-// ipcRenderer.send('open-image', 'foo')
+// Handle left and right arrow keys
+document.onkeydown = (e) => {
+  // Switch the image
+  switch (e.keyCode) {
+    case constants.keys.rightKey:
+
+      // Keep track of what image we are on
+      if (currentImage >= fileList.length) {
+        currentImage = 0
+      }
+
+      currentImage += 1
+
+      imageBox.src = fileList[currentImage]
+
+      break;
+    case constants.keys.leftKey:
+
+      // Keep track of what image we are on
+      if (currentImage >= fileList.length) {
+        currentImage = 0
+      }
+
+      currentImage -= 1
+
+      imageBox.src = fileList[currentImage]
+      break;
+  }
+
+}

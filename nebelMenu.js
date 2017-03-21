@@ -10,7 +10,7 @@ let template = [{
         accelerator: "CmdOrCtrl+O",
         click: function() {
             dialog.showOpenDialog({
-                properties: ['openFile']
+                properties: ['openFile', 'multiSelections']
 
             }, function(files) {
                 if (files) {
