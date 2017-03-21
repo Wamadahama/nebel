@@ -9,10 +9,6 @@ const url = require('url')
 
 const Menu = electron.Menu
 
-const nebelMenu = require('./nebelMenu')
-
-const ipc = require('electron').ipcMain
-
 const dialog = require('electron')
 
 
@@ -29,6 +25,7 @@ function createWindow () {
     slashes: true
   }))
 
+  mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
@@ -39,6 +36,9 @@ function createWindow () {
   })
 }
 
+const nebelMenu = require('./nebelMenu')
+
+
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -48,7 +48,6 @@ app.on('ready', function() {
     //  Load the menu from nebelMenu.js
     const menu = Menu.buildFromTemplate(nebelMenu.template)
     Menu.setApplicationMenu(menu)
-
     createWindow()
 })
 
@@ -71,4 +70,3 @@ app.on('activate', function () {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can alsoOGu', FUNCTION(event) {
-
