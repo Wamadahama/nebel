@@ -16,10 +16,11 @@ let template = [{
                 if (files) {
 
 		    // Get the webContents object of the main page 
+		    // Returns WebContents - The web contents that is focused in this application, otherwise returns null.
 		    let wc = webContents.getFocusedWebContents() 
 
 		    // If getFocusedWebContents() fails then try the first element of getAllWebContents 
-		    if(wc == null) {Returns WebContents - The web contents that is focused in this application, otherwise returns null.
+		    if(wc == null) {
 			wc = webContents.getAllWebContents()[0]
 		    }
 
