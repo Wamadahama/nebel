@@ -14,7 +14,17 @@ let template = [{
 
             }, function(files) {
                 if (files) {
-                  webContents.getFocusedWebContents().send('image-send', files)
+
+		    // Get the webContents object of the main page 
+		    let wc = webContents.getFocusedWebContents() 
+
+		    // If getFocusedWebContents() fails then try the first element of getAllWebContents 
+		    if(wc == null) {Returns WebContents - The web contents that is focused in this application, otherwise returns null.
+			wc = webContents.getAllWebContents()[0]
+		    }
+
+		    // Send the files 
+		    wc.send('image-send', files)
                 }
             })
         }
