@@ -33,7 +33,7 @@ let template = [{
         type: 'separator'
     }, {
         label: 'Quit',
-        aceelerator: "CmdOrCtrl+Q",
+        Aceelerator: "CmdOrCtrl+Q",
         role: "quit"
     }]
 }]

@@ -24,6 +24,7 @@ ipcRenderer.on('image-send', function(event, files) {
 
 });
 
+
 // Handle left and right arrow keys
 document.onkeydown = (e) => {
 
@@ -31,6 +32,7 @@ document.onkeydown = (e) => {
   switch (e.keyCode) {
     case constants.keys.rightKey:
 
+      // Move to the next image on the right 
       if(fileList.length != 1) {
 	currentImage += 1
       }
@@ -38,16 +40,24 @@ document.onkeydown = (e) => {
       break;
     case constants.keys.leftKey:
 
-      if(currentImage == 0) {
-	  console.log(currentImage)
+      // Move the the next image on the left 
+      if(currentImage == 0) { // If its the last image then move it to the end of the list
 	    currentImage = fileList.length-1
       } else {
 
+	  // Move it one back
 	  if(fileList.length != 1) {
 	    currentImage -= 1;
 	  }
 
       }
+      break;
+
+  case constants.keys.downKey:
+      currentImage = 0
+      break;
+  case constants.keys.upKey:
+      currentImage = fileList.length-1
       break;
   }
 
@@ -57,7 +67,9 @@ document.onkeydown = (e) => {
       currentImage = 0
     }
 
-    // Set image 
-    imageBox.src = fileList[currentImage]
-    imageCount.innerText = `${ currentImage+1 } \\ ${ fileList.length }`
+    // Set image, if there are none then don't do anything 
+    if(fileList.length != 0) {
+	imageBox.src = fileList[currentImage]
+	imageCount.innerText = `${ currentImage+1 } \\ ${ fileList.length }`
+    }
 }
