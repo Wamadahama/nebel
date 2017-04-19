@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Nebel</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/picnicss/6.3.2/picnic.min.css">
+    <style media="screen">
+
+      div.fill-screen {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        text-align: center;
+      }
+
+      img.make-it-fit {
+        max-width: 99%;
+        max-height: 99%;
+      }
+
+    </style>
+  </head>
+
+
+  <body>
+    <div class='fill-screen'>
+	<!-- http://stackoverflow.com/questions/6169666/how-to-resize-an-image-to-fit-in-the-browser-window -->
+	<img id='image' class='make-it-fit' src=''></img>
+	<span id='count'></span>
+    </div>
+  </body>
+
+  <script>
+    require('./renderer.js')
+  </script>
+
+</html>

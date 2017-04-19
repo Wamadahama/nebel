@@ -36,6 +36,11 @@ let template = [{
         Aceelerator: "CmdOrCtrl+Q",
         role: "quit"
     }]
+}, {
+    label: 'Options',
+    click: function() {
+	console.log("test")
+    }
 }]
 
 module.exports = {
