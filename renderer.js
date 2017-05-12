@@ -14,14 +14,26 @@ let imageCount = document.querySelector("#count")
 let fileList = []
 let currentImage = 0
 
+let build_bottom_bar = () => {
+    if(fileList.length != 0) {
+	imageCount.innerText = `${ currentImage+1 } \\ ${ fileList.length }`
+
+	let fn = fileList[currentImage].split("\\")
+
+	console.log(fn)
+
+	fileName.innerText   =  `${ fn[fn.length-1]}`
+    }
+
+}
+
 ipcRenderer.on('image-send', function(event, files) {
     /* Store the files */
     fileList = files
 
     /* Load the first file */
     imageBox.src = files[0];
-    imageCount.innerText = `${ currentImage+1 } \\ ${ fileList.length }`
-
+    build_bottom_bar()
 });
 
 
@@ -71,5 +83,8 @@ document.onkeydown = (e) => {
     if(fileList.length != 0) {
 	imageBox.src = fileList[currentImage]
 	imageCount.innerText = `${ currentImage+1 } \\ ${ fileList.length }`
+        imageCount.altText = "Image failed to load"
     }
+
+    build_bottom_bar()
 }

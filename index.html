@@ -7,12 +7,14 @@
     <style media="screen">
 
       div.fill-screen {
+        background-color: #f4f4f4;
         position: fixed;
         left: 0;
         right: 0;
         top: 0;
         bottom: 0;
         text-align: center;
+        padding-bottom: 10px;
       }
 
       img.make-it-fit {
@@ -20,15 +22,36 @@
         max-height: 99%;
       }
 
+      #bottom-bar {
+        border-top: 1px solid #f4f4f4;
+        padding-right: 15px;
+        position: fixed;
+	text-align: right;
+	bottom: 0;
+	left:0;
+	width: 100%;
+        font-size: 12px;
+        font-size: 2vh;
+        background-color: #fff;
+      }
+
     </style>
   </head>
 
 
   <body>
-    <div class='fill-screen'>
-	<!-- http://stackoverflow.com/questions/6169666/how-to-resize-an-image-to-fit-in-the-browser-window -->
-	<img id='image' class='make-it-fit' src=''></img>
-	<span id='count'></span>
+    <div class="">
+
+	<div class='fill-screen'>
+	    <!-- http://stackoverflow.com/questions/6169666/how-to-resize-an-image-to-fit-in-the-browser-window -->
+	    <img id='image' class='make-it-fit' src=''></img>
+	</div>
+
+	<div id="bottom-bar">
+	    <span id='fileName'></span>
+	    <span id='count'></span>
+	</div>
+
     </div>
   </body>
 
